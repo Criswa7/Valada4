@@ -1,0 +1,35 @@
+.voting {
+      max-width: 600px;
+        margin: 0 auto;
+          padding: 20px;
+          }
+
+          .fight {
+            margin-bottom: 20px;
+              padding: 15px;
+                background-color: #f0f0f0;
+                  border-radius: 5px;
+                  }
+
+                  .fighters {
+                    display: flex;
+                      justify-content: space-between;
+                        align-items: center;
+                        }
+
+                        button {
+                          padding: 10px 15px;
+                            background-color: #4CAF50;
+                              color: white;
+                                border: none;
+                                  border-radius: 5px;
+                                    cursor: pointer;
+                                    }
+
+                                    button:hover {
+                                      background-color: #45a049;
+                                      }
+
+                                      span {
+                                        font-weight: bold;
+                                        }
