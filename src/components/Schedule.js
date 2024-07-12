@@ -5,8 +5,7 @@ function Schedule() {
   const events = [
     { time: '9:30', description: 'Apertura de puertas' },
     { time: '13:00', description: 'Almuerzo' },
-    { time: '17:00', description: 'Cena' },
-    { time: '16:30', description: 'Segundo combate' }
+    { time: '17:00', description: 'Cena' }
   ];
 
   return (
