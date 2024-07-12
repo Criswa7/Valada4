@@ -25,7 +25,7 @@ function Menu() {
       { name: 'Vodka Sunrise', image: 'vodka-sunrise.webp' }
     ],
     almuerzo: [{ name: 'Desde las 1PM', image: 'almuerzo.webp' }],
-    cena: [{ name: 'Por definir', image: 'cena.webp' }]
+    cena: [{ name: 'Joda', image: 'cena.webp' }]
   };
 
   return (

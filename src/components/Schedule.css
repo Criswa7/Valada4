@@ -9,19 +9,19 @@
   padding: 0;
 }
 
-.event-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  padding: 10px;
+.event-list li {
   background-color: #f0f0f0;
-  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .event-time {
   font-weight: bold;
   margin-right: 15px;
-  min-width: 60px;
 }
 
 .event-description {
