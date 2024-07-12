@@ -1,14 +1,14 @@
 .voting {
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .fight {
-  margin-bottom: 20px;
-  padding: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
   background-color: #f0f0f0;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .fighters {
@@ -17,17 +17,32 @@
   align-items: center;
 }
 
+.multiple-fighters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.fighter-button {
+  margin: 10px;
+}
+
 button {
-  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
   background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover:not(:disabled) {
   background-color: #45a049;
+  transform: scale(1.05);
 }
 
 button:disabled {
@@ -39,11 +54,49 @@ button.voted {
   background-color: #2196F3;
 }
 
-span {
-  font-weight: bold;
+button img {
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
-.fight-description {
-  margin-top: 10px;
-  font-style: italic;
+button.big img {
+  width: 150px;
+  height: 150px;
+}
+
+button.small img {
+  width: 100px;
+  height: 100px;
+}
+
+button span {
+  text-align: center;
+  margin: 2px 0;
+}
+
+.fighters > span {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 0 10px;
+}
+
+h3, h4 {
+  text-align: center;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .fighters {
+    flex-direction: column;
+  }
+  
+  .fighters > span {
+    margin: 10px 0;
+  }
+  
+  button.big img, button.small img {
+    width: 100px;
+    height: 100px;
+  }
 }
