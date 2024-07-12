@@ -16,16 +16,16 @@ const MenuItem = ({ item, image }) => (
 function Menu() {
   const menuItems = {
     bebidas: [
-      { name: 'Agua', image: 'agua.png' },
-      { name: 'Sangría', image: 'sangria.png' },
-      { name: 'Cerveza michelada', image: 'michelada.png' },
-      { name: 'Mojito', image: 'mojito.png' },
-      { name: 'Cuba Libre', image: 'cuba-libre.png' },
-      { name: 'Rusia Libre', image: 'rusia-libre.png' },
-      { name: 'Vodka Sunrise', image: 'vodka-sunrise.png' }
+      { name: 'Agua', image: 'agua.webp' },
+      { name: 'Sangría', image: 'sangria.webp' },
+      { name: 'Cerveza michelada', image: 'michelada.webp' },
+      { name: 'Mojito', image: 'mojito.webp' },
+      { name: 'Cuba Libre', image: 'cuba-libre.webp' },
+      { name: 'Rusia Libre', image: 'rusia-libre.webp' },
+      { name: 'Vodka Sunrise', image: 'vodka-sunrise.webp' }
     ],
-    almuerzo: [{ name: 'Desde las 1PM', image: 'almuerzo.png' }],
-    cena: [{ name: 'Por definir', image: 'cena.png' }]
+    almuerzo: [{ name: 'Desde las 1PM', image: 'almuerzo.webp' }],
+    cena: [{ name: 'Por definir', image: 'cena.webp' }]
   };
 
   return (
