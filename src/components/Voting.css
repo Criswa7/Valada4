@@ -55,19 +55,20 @@ button.voted {
 }
 
 button img {
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
+  object-fit: contain;  /* Cambiado de 'cover' a 'contain' */
+  border-radius: 10px;  /* Cambiado de 50% a 10px para un aspecto más cuadrado */
+  margin-bottom: 10px; /* Color de fondo para imágenes transparentes */
+}
+
+
+button.small img {
+  width: 120px;  /* Aumentado ligeramente */
+  height: 120px;
 }
 
 button.big img {
   width: 150px;
   height: 150px;
-}
-
-button.small img {
-  width: 100px;
-  height: 100px;
 }
 
 button span {
@@ -86,6 +87,18 @@ h3, h4 {
   color: #333;
 }
 
+.fight {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  text-align: center;
+  color: #333;
+}
+
 @media (max-width: 768px) {
   .fighters {
     flex-direction: column;
@@ -96,7 +109,7 @@ h3, h4 {
   }
   
   button.big img, button.small img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
 }

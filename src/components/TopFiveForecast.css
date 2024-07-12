@@ -1,0 +1,57 @@
+.top-five-forecast {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .top-five-forecast h4 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .top-five-forecast p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .top-five-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .top-five-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .rank {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 20px;
+  }
+  
+  .name {
+    flex-grow: 1;
+  }
+  
+  .percentage {
+    width: 50px;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  .bar-container {
+    width: 100px;
+    background-color: #555;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .bar {
+    height: 100%;
+    background-color: #4CAF50;
+  }

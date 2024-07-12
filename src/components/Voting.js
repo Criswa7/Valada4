@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Voting.css';
+import FightForecast from './FightForecast';
+import TopFiveForecast from './TopFiveForecast';
 
 function Voting() {
   const [fights, setFights] = useState([
@@ -40,25 +42,39 @@ function Voting() {
       return;
     }
 
-    const updatedFights = fights.map(fight => {
-      if (fight.id === fightId) {
-        if (fight.type === 'multiple') {
-          const updatedVotes = { ...fight.votes, [fighter]: (fight.votes[fighter] || 0) + 1 };
-          return { ...fight, votes: updatedVotes };
-        } else {
-          const updatedVotes = { ...fight.votes, [fighter]: fight.votes[fighter] + 1 };
-          return { ...fight, votes: updatedVotes };
+    setFights(prevFights => {
+      const updatedFights = prevFights.map(fight => {
+        if (fight.id === fightId) {
+          if (fight.type === 'multiple') {
+            return {
+              ...fight,
+              votes: {
+                ...fight.votes,
+                [fighter]: (fight.votes[fighter] || 0) + 1
+              }
+            };
+          } else {
+            return {
+              ...fight,
+              votes: {
+                ...fight.votes,
+                [fighter]: (fight.votes[fighter] || 0) + 1
+              }
+            };
+          }
         }
-      }
-      return fight;
+        return fight;
+      });
+
+      localStorage.setItem('fightVotes', JSON.stringify(updatedFights));
+      return updatedFights;
     });
 
-    const updatedUserVotes = { ...userVotes, [fightId]: fighter };
-
-    setFights(updatedFights);
-    setUserVotes(updatedUserVotes);
-    localStorage.setItem('fightVotes', JSON.stringify(updatedFights));
-    localStorage.setItem('userVotes', JSON.stringify(updatedUserVotes));
+    setUserVotes(prevUserVotes => {
+      const updatedUserVotes = { ...prevUserVotes, [fightId]: fighter };
+      localStorage.setItem('userVotes', JSON.stringify(updatedUserVotes));
+      return updatedUserVotes;
+    });
   };
 
   const getImageFileName = (fighter, size) => {
@@ -66,17 +82,21 @@ function Voting() {
     return `${baseName}-${size}.webp`;
   };
 
-  const renderFighterButton = (fightId, fighter, votes, size) => (
-    <button 
-      onClick={() => handleVote(fightId, fighter)}
-      disabled={userVotes[fightId]}
-      className={`${userVotes[fightId] === fighter ? 'voted' : ''} ${size}`}
-    >
-      <img src={`/images/${getImageFileName(fighter, size)}`} alt={fighter} />
-      <span>{fighter}</span>
-      <span>({votes} votos)</span>
-    </button>
-  );
+  const renderFighterButton = (fightId, fighterKey, votes, size) => {
+    const fight = fights.find(f => f.id === fightId);
+    const fighterName = fight.type === 'multiple' ? fighterKey : fight[fighterKey];
+    return (
+      <button 
+        onClick={() => handleVote(fightId, fighterKey)}
+        disabled={userVotes[fightId]}
+        className={`${userVotes[fightId] === fighterKey ? 'voted' : ''} ${size}`}
+      >
+        <img src={`/images/${getImageFileName(fighterName, size)}`} alt={fighterName} />
+        <span>{fighterName}</span>
+        <span>({votes} votos)</span>
+      </button>
+    );
+  };
 
   return (
     <div className="voting">
@@ -92,14 +112,29 @@ function Voting() {
                   {renderFighterButton(fight.id, fighter, fight.votes[fighter] || 0, fight.size)}
                 </div>
               ))}
+              {fight.type === 'multiple' && (
+  <TopFiveForecast
+    fighters={fight.fighters}
+    votes={fight.votes}
+  />
+)}
             </div>
-          ) : (
+          ): (
             <div className="fighters">
-              {renderFighterButton(fight.id, fight.fighter1, fight.votes.fighter1, fight.size)}
+              {renderFighterButton(fight.id, 'fighter1', fight.votes.fighter1, fight.size)}
               <span>VS</span>
-              {renderFighterButton(fight.id, fight.fighter2, fight.votes.fighter2, fight.size)}
+              {renderFighterButton(fight.id, 'fighter2', fight.votes.fighter2, fight.size)}
             </div>
           )}
+        
+        {!fight.type && (
+  <FightForecast
+    fighter1={fight.fighter1}
+    fighter2={fight.fighter2}
+    votes={fight.votes}
+  />
+)}
+        
         </div>
       ))}
     </div>
