@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Menu from './components/Menu';
 import Schedule from './components/Schedule';
 import Voting from './components/Voting';
+import Sponsors from './components/Sponsors';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/votaciones" element={<Voting />} />
           </Routes>
         </main>
+        <Sponsors />
       </div>
     </Router>
   );

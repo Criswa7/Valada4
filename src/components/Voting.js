@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ref, onValue, update } from 'firebase/database';
 import { database } from '../firebase';
 import FightForecast from './FightForecast';
@@ -51,23 +52,36 @@ function Voting() {
     const fight = fights.find(f => f.id === fightId);
     const fighterName = fight.type === 'multiple' ? fighterKey : fight[fighterKey];
     return (
-      <button 
+      <motion.button 
         onClick={() => handleVote(fightId, fighterKey)}
         disabled={userVotes[fightId]}
         className={`${userVotes[fightId] === fighterKey ? 'voted' : ''} ${size}`}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
         <img src={`/images/${getImageFileName(fighterName, size)}`} alt={fighterName} />
         <span>{fighterName}</span>
         <span>({votes} votos)</span>
-      </button>
+      </motion.button>
     );
   };
 
   return (
-    <div className="voting">
+    <motion.div 
+      className="voting"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2>Votaciones para los Combates</h2>
-      {fights.map(fight => (
-        <div key={fight.id} className="fight">
+      {fights.map((fight, index) => (
+        <motion.div 
+          key={fight.id} 
+          className="fight"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1 }}
+        >
           <h3>Combate {fight.id}</h3>
           {fight.type === 'multiple' ? (
             <div className="multiple-fighters">
@@ -91,9 +105,9 @@ function Voting() {
               />
             </div>
           )}
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
