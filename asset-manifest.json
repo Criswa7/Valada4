@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/velada_cuatro/static/css/main.68cdc534.css",
-    "main.js": "/velada_cuatro/static/js/main.5a56695a.js",
+    "main.js": "/velada_cuatro/static/js/main.d3d4c1b2.js",
     "index.html": "/velada_cuatro/index.html",
     "main.68cdc534.css.map": "/velada_cuatro/static/css/main.68cdc534.css.map",
-    "main.5a56695a.js.map": "/velada_cuatro/static/js/main.5a56695a.js.map"
+    "main.d3d4c1b2.js.map": "/velada_cuatro/static/js/main.d3d4c1b2.js.map"
   },
   "entrypoints": [
     "static/css/main.68cdc534.css",
-    "static/js/main.5a56695a.js"
+    "static/js/main.d3d4c1b2.js"
   ]
 }
