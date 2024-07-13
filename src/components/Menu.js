@@ -8,7 +8,7 @@ const MenuItem = ({ item, image }) => (
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
-    <img src={`/images/menu/${image}`} alt={item} className="menu-item-image" />
+    <img src={`${process.env.PUBLIC_URL}/images/menu/${image}`} alt={item} className="menu-item-image" />
     <span>{item}</span>
   </motion.div>
 );

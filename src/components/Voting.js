@@ -59,7 +59,7 @@ function Voting() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <img src={`/images/${getImageFileName(fighterName, size)}`} alt={fighterName} />
+        <img src={`${process.env.PUBLIC_URL}/images/${getImageFileName(fighterName, size)}`} alt={fighterName} />
         <span>{fighterName}</span>
         <span>({votes} votos)</span>
       </motion.button>

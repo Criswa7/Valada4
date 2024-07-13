@@ -30,7 +30,7 @@ function Sponsors() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
           >
-            <img src={`/images/sponsors/${sponsor.image}`} alt={sponsor.name} />
+            <img src={`${process.env.PUBLIC_URL}/images/sponsors/${sponsor.image}`} alt={sponsor.name} />
             <p>{sponsor.name}</p>
           </motion.div>
         ))}
